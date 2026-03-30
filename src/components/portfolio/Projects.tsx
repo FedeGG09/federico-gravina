@@ -1,121 +1,140 @@
 import { portfolioData } from "@/data/portfolio";
 import { SectionHeader } from "./SectionHeader";
 import { FadeIn } from "./FadeIn";
-import { Shield, TrendingUp, User, Layers } from "lucide-react";
+import {
+  Shield,
+  TrendingUp,
+  User,
+  Layers,
+  Activity,
+  Clock3,
+} from "lucide-react";
 
 export function Projects() {
   return (
     <section id="projects" className="section-padding">
       <div className="container">
-        <SectionHeader label="Proyectos" title="Casos de Estudio" />
+        <SectionHeader
+          label="AI Control Modules"
+          title="Plataformas, observabilidad y business impact"
+        />
+
         <div className="grid gap-10">
           {portfolioData.projects.map((project, i) => (
             <FadeIn key={project.title} delay={i * 0.08}>
-              <article
-                className={`card-surface overflow-hidden hover:glow-sm transition-all group ${
-                  project.isHero ? "border-primary/20" : ""
-                }`}
-              >
-                {project.isHero && (
-                  <div className="bg-primary/10 border-b border-primary/20 px-8 py-2">
-                    <span className="text-xs font-mono uppercase text-primary tracking-widest">
-                      Proyecto destacado
-                    </span>
-                  </div>
-                )}
-
+              <article className="card-surface overflow-hidden border border-border/60 hover:border-primary/30 transition-all">
                 <div className="p-8 md:p-10">
-                  {/* Header */}
-                  <div className="mb-6">
-                    <p className="text-xs font-mono uppercase text-primary tracking-wider mb-2">
-                      {project.client}
-                    </p>
-                    <h3 className="text-xl md:text-2xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
-                  </div>
+                  {/* TOP BAR */}
+                  <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+                    <div>
+                      <p className="text-xs font-mono uppercase text-primary tracking-widest mb-2">
+                        {project.client}
+                      </p>
+                      <h3 className="text-2xl font-semibold">
+                        {project.title}
+                      </h3>
+                    </div>
 
-                  {/* Problem → Approach → Decision */}
-                  <div className="grid md:grid-cols-3 gap-6 mb-8">
-                    <div>
-                      <p className="text-xs font-mono uppercase text-primary mb-2 tracking-wide">Problema</p>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{project.problem}</p>
-                    </div>
-                    <div>
-                      <p className="text-xs font-mono uppercase text-primary mb-2 tracking-wide">Enfoque</p>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{project.approach}</p>
-                    </div>
-                    <div>
-                      <p className="text-xs font-mono uppercase text-primary mb-2 tracking-wide">Decisión técnica</p>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{project.technicalDecision}</p>
+                    <div className="flex gap-3">
+                      <div className="px-3 py-2 rounded-lg bg-primary/10 text-primary text-xs font-mono">
+                        SLA 99%+
+                      </div>
+                      <div className="px-3 py-2 rounded-lg bg-secondary text-xs font-mono">
+                        PROD ACTIVE
+                      </div>
                     </div>
                   </div>
 
-                  {/* Results */}
-                  <div className="mb-8">
-                    <p className="text-xs font-mono uppercase text-primary mb-3 tracking-wide flex items-center gap-2">
-                      <TrendingUp size={14} /> Resultado
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.results.map((r) => (
-                        <span
-                          key={r}
-                          className="px-3 py-1.5 text-sm rounded-md bg-primary/10 text-primary border border-primary/20"
-                        >
-                          {r}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* KPIs */}
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+                  {/* KPI STRIP */}
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                     {project.kpis.map((kpi) => (
                       <div
                         key={kpi.label}
-                        className="bg-secondary/50 rounded-lg p-4 text-center"
+                        className="rounded-xl border border-border bg-secondary/30 p-4"
                       >
-                        <p className="text-xl md:text-2xl font-bold text-primary font-mono">{kpi.value}</p>
-                        <p className="text-xs text-muted-foreground mt-1">{kpi.label}</p>
+                        <p className="text-2xl font-bold text-primary font-mono">
+                          {kpi.value}
+                        </p>
+                        <p className="text-xs text-muted-foreground mt-1">
+                          {kpi.label}
+                        </p>
                       </div>
                     ))}
                   </div>
 
-                  {/* Architecture & Ownership */}
-                  <div className="grid md:grid-cols-2 gap-6 mb-6">
-                    <div>
-                      <p className="text-xs font-mono uppercase text-muted-foreground mb-3 tracking-wide flex items-center gap-2">
-                        <Shield size={14} /> Arquitectura / Seguridad / SLA
-                      </p>
-                      <ul className="space-y-1.5">
-                        {project.architecture.map((a) => (
-                          <li key={a} className="text-sm text-muted-foreground flex gap-2">
-                            <span className="text-primary shrink-0">›</span> {a}
-                          </li>
-                        ))}
-                      </ul>
+                  {/* EXEC GRID */}
+                  <div className="grid lg:grid-cols-2 gap-8 mb-8">
+                    <div className="space-y-6">
+                      <div>
+                        <p className="text-xs font-mono uppercase text-primary mb-3 flex items-center gap-2">
+                          <Activity size={14} />
+                          Problem / Strategy
+                        </p>
+                        <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                          {project.problem}
+                        </p>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          {project.approach}
+                        </p>
+                      </div>
+
+                      <div>
+                        <p className="text-xs font-mono uppercase text-primary mb-3 flex items-center gap-2">
+                          <Shield size={14} />
+                          Architecture / Governance
+                        </p>
+                        <ul className="space-y-2">
+                          {project.architecture.map((a) => (
+                            <li key={a} className="text-sm text-muted-foreground">
+                              • {a}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-xs font-mono uppercase text-muted-foreground mb-3 tracking-wide flex items-center gap-2">
-                        <User size={14} /> Ownership
-                      </p>
-                      <ul className="space-y-1.5">
-                        {project.ownership.map((o) => (
-                          <li key={o} className="text-sm text-muted-foreground flex gap-2">
-                            <span className="text-primary shrink-0">✓</span> {o}
-                          </li>
-                        ))}
-                      </ul>
+
+                    <div className="space-y-6">
+                      <div>
+                        <p className="text-xs font-mono uppercase text-primary mb-3 flex items-center gap-2">
+                          <TrendingUp size={14} />
+                          Business Impact
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {project.results.map((r) => (
+                            <span
+                              key={r}
+                              className="px-3 py-2 rounded-lg bg-primary/10 text-primary text-sm"
+                            >
+                              {r}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div>
+                        <p className="text-xs font-mono uppercase text-primary mb-3 flex items-center gap-2">
+                          <User size={14} />
+                          Ownership
+                        </p>
+                        <ul className="space-y-2">
+                          {project.ownership.map((o) => (
+                            <li key={o} className="text-sm text-muted-foreground">
+                              ✓ {o}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Stack */}
-                  <div className="flex flex-wrap gap-2 pt-4 border-t border-border">
-                    <Layers size={14} className="text-muted-foreground mt-0.5" />
+                  {/* FOOTER STACK */}
+                  <div className="flex flex-wrap gap-2 pt-6 border-t border-border">
+                    <Clock3 size={14} className="text-primary mt-1" />
+                    <Layers size={14} className="text-primary mt-1" />
                     {project.stack.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2.5 py-1 text-xs rounded-md border border-border text-muted-foreground"
+                        className="px-3 py-1 rounded-md border border-border text-xs"
                       >
                         {tech}
                       </span>
