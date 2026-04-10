@@ -14,6 +14,8 @@ export interface ProjectDetail {
   architecture: string[];
   ownership: string[];
   stack: string[];
+  liveUrl?: string;
+  repoUrl?: string;
   operationalCockpit?: {
     title: string;
     widgets: string[];
@@ -137,7 +139,7 @@ export const portfolioData = {
     "Google Ads",
     "LLaMA 3",
     "OpenAI",
-    "Azure AI Foundry,",    
+    "Azure AI Foundry,",
     "AWS Bedrock",
   ],
 
@@ -188,6 +190,7 @@ export const portfolioData = {
         ],
       },
       stack: ["Python", "SQL Server", "Azure", "Power BI"],
+      liveUrl: "https://argent-pricing.lovable.app/",
       isHero: true,
     },
     {
@@ -235,6 +238,7 @@ export const portfolioData = {
         ],
       },
       stack: ["Azure AI Foundry", "LangChain", "Qdrant", "Azure SQL"],
+      liveUrl: "https://dossieros.lovable.app/",
     },
     {
       title: "Scraping y enriquecimiento inteligente de leads",
@@ -290,13 +294,39 @@ export const portfolioData = {
         { value: "<2s", label: "Latencia" },
         { value: "30%", label: "Menos retrabajo" },
       ],
-      architecture: [
-        "Scoring batch + online",
-        "Auditabilidad",
-        "Drift monitoring",
-      ],
+      architecture: ["Scoring batch + online", "Auditabilidad", "Drift monitoring"],
       ownership: ["Arquitectura", "Pipelines", "APIs", "Stakeholders"],
       stack: ["LangChain", "Qdrant", "ADF", "FastAPI"],
+      liveUrl: "https://risk-genie-flow.pages.dev/",
+    },
+    {
+      title: "Petronova AI Ops Copilot",
+      client: "Petronova",
+      problem:
+        "La operación necesitaba un copiloto unificado para acelerar consultas, centralizar conocimiento y apoyar decisiones técnicas con trazabilidad.",
+      approach:
+        "Desarrollé una experiencia de AI Ops enfocada en soporte operativo, acceso rápido a conocimiento y asistencia inteligente para flujos críticos.",
+      technicalDecision:
+        "Frontend moderno + backend de IA + RAG + despliegue cloud para demo funcional de operación asistida por LLM.",
+      results: [
+        "Acceso más rápido al conocimiento",
+        "Soporte a decisiones operativas",
+        "Demostración productiva de AI Ops",
+      ],
+      kpis: [
+        { value: "AI", label: "Copilot layer" },
+        { value: "RAG", label: "Knowledge retrieval" },
+        { value: "Web", label: "Demo deployada" },
+      ],
+      architecture: [
+        "Capa de asistencia contextual",
+        "Recuperación semántica",
+        "Flujos orientados a operación",
+      ],
+      ownership: ["Arquitectura", "Implementación", "Demo deployada", "Iteración funcional"],
+      stack: ["React", "TypeScript", "FastAPI", "RAG", "LLM"],
+      liveUrl: "https://petronova.lovable.app/",
+      repoUrl: "https://github.com/FedeGG09/Petronova-AI-Ops-Copilot",
     },
   ] as ProjectDetail[],
 
@@ -335,13 +365,7 @@ export const portfolioData = {
       period: "Mar 2025 — Presente",
       summary:
         "Lidero diseño y desarrollo de plataformas end-to-end de scraping, enriquecimiento de leads, scoring con IA, motores de recomendación y backends productivos con FastAPI. Implementé LangChain, FAISS, Qdrant, Azure AI Foundry, Playwright, Selenium, Azure Blob Storage, Azure SQL y dashboards interactivos con HTML/JS/Chart.js.",
-      tags: [
-        "LLM",
-        "RAG",
-        "Backend",
-        "Scraping",
-        "Dashboards",
-      ],
+      tags: ["LLM", "RAG", "Backend", "Scraping", "Dashboards"],
       technologies: [
         "FastAPI",
         "LangChain",
@@ -354,31 +378,31 @@ export const portfolioData = {
       ],
     },
     {
-  role: "Data Scientist / Data Engineer / AI Engineer",
-  company: "Analytics Town",
-  period: "Feb 2024 — Abr 2025",
-  summary:
-    "Diseñé arquitecturas de IA, RAG y machine learning para pricing dinámico, forecasting, dashboards ejecutivos y automatización de decisiones de negocio. Implementé pipelines ETL, modelos predictivos, soluciones con AWS Bedrock, análisis de sentimiento, optimización UX con Hotjar y estrategias data-driven para revenue uplift.",
-  tags: [
-    "LLM",
-    "RAG",
-    "Pricing",
-    "Forecasting",
-    "Dashboards",
-    "Revenue",
-    "Data Storytelling",
-  ],
-  technologies: [
-    "Python",
-    "SQL Server",
-    "Power BI",
-    "FastAPI",
-    "AWS Bedrock",
-    "Hotjar",
-    "Google Ads",
-    "Azure",
-  ],
-},
+      role: "Data Scientist / Data Engineer / AI Engineer",
+      company: "Analytics Town",
+      period: "Feb 2024 — Abr 2025",
+      summary:
+        "Diseñé arquitecturas de IA, RAG y machine learning para pricing dinámico, forecasting, dashboards ejecutivos y automatización de decisiones de negocio. Implementé pipelines ETL, modelos predictivos, soluciones con AWS Bedrock, análisis de sentimiento, optimización UX con Hotjar y estrategias data-driven para revenue uplift.",
+      tags: [
+        "LLM",
+        "RAG",
+        "Pricing",
+        "Forecasting",
+        "Dashboards",
+        "Revenue",
+        "Data Storytelling",
+      ],
+      technologies: [
+        "Python",
+        "SQL Server",
+        "Power BI",
+        "FastAPI",
+        "AWS Bedrock",
+        "Hotjar",
+        "Google Ads",
+        "Azure",
+      ],
+    },
     {
       role: "Data Science Teaching Assistant",
       company: "Henry Bootcamp",
