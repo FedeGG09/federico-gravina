@@ -8,6 +8,8 @@ import {
   Layers,
   Activity,
   CheckCircle2,
+  ExternalLink,
+  Github,
 } from "lucide-react";
 
 export function Projects() {
@@ -27,7 +29,6 @@ export function Projects() {
                   project.isHero ? "ring-1 ring-primary/20" : ""
                 }`}
               >
-                {/* STATUS BAR */}
                 <div className="px-8 py-3 border-b border-border bg-secondary/30 flex flex-wrap gap-3 text-[11px] uppercase tracking-wider">
                   <span className="text-primary flex items-center gap-1">
                     <CheckCircle2 size={12} /> Production
@@ -69,7 +70,6 @@ export function Projects() {
                     </div>
                   </div>
 
-                  {/* KPI DASHBOARD */}
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                     {project.kpis.map((kpi) => (
                       <div
@@ -86,7 +86,6 @@ export function Projects() {
                     ))}
                   </div>
 
-                  {/* RESULTS */}
                   <div className="mb-8">
                     <p className="text-xs uppercase text-primary mb-3 flex items-center gap-2">
                       <TrendingUp size={14} /> Business Impact
@@ -110,7 +109,10 @@ export function Projects() {
                       </p>
                       <ul className="space-y-2">
                         {project.architecture.map((a) => (
-                          <li key={a} className="text-sm text-muted-foreground flex gap-2">
+                          <li
+                            key={a}
+                            className="text-sm text-muted-foreground flex gap-2"
+                          >
                             <Activity size={14} className="text-primary mt-0.5" />
                             {a}
                           </li>
@@ -124,7 +126,10 @@ export function Projects() {
                       </p>
                       <ul className="space-y-2">
                         {project.ownership.map((o) => (
-                          <li key={o} className="text-sm text-muted-foreground flex gap-2">
+                          <li
+                            key={o}
+                            className="text-sm text-muted-foreground flex gap-2"
+                          >
                             <CheckCircle2
                               size={14}
                               className="text-primary mt-0.5"
@@ -147,6 +152,34 @@ export function Projects() {
                       </span>
                     ))}
                   </div>
+
+                  {(project.liveUrl || project.repoUrl) && (
+                    <div className="flex flex-wrap gap-3 mt-6 pt-6 border-t border-border">
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-2 rounded-lg border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary/15"
+                        >
+                          <ExternalLink size={14} />
+                          Demo
+                        </a>
+                      )}
+
+                      {project.repoUrl && (
+                        <a
+                          href={project.repoUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+                        >
+                          <Github size={14} />
+                          Repo
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
               </article>
             </FadeIn>
